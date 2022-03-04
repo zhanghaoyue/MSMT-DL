@@ -3,12 +3,12 @@ import torch
 import math
 from torchvision.models import *
 import torch.utils.model_zoo as model_zoo
-from torchvision.ops import nms
-from retinanet.utils import BasicBlock, Bottleneck, BBoxTransform, ClipBoxes
+from torchvision.ops import nms, box_iou
+
 from retinanet.anchors import Anchors
 from retinanet import losses
-from config import opt
-from torchvision.ops import box_iou
+
+import timm
 
 import sys
 sys.path.append("..")

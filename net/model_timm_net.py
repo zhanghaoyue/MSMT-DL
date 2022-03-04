@@ -3,11 +3,11 @@ import torch
 import math
 from torchvision.models import *
 import torch.utils.model_zoo as model_zoo
-from torchvision.ops import nms
-from retinanet.utils import BasicBlock, Bottleneck, BBoxTransform, ClipBoxes
+from torchvision.ops import nms, box_iou
+
 from retinanet.anchors import Anchors
 from retinanet import losses
-from torchvision.ops import box_iou
+
 import timm
 
 import sys
@@ -69,7 +69,8 @@ class Timm(nn.Module):
                      self.layer3[layers[2] - 1].conv3.out_channels,
                      self.layer4[layers[3] - 1].conv3.out_channels]
 
-        self.fpn = PyramidFeatures(fpn_sizes[0], fpn_sizes[1], fpn_sizes[2])
+        # self.fpn = PyramidFeatures(fpn_sizes[0], fpn_sizes[1], fpn_sizes[2])
+        self.fpn = PyramidFeatures(*fpn_sizes)
 
         self.anchors = Anchors()
         num_anchors = self.anchors.ratios.shape[0] * self.anchors.scales.shape[0]
@@ -131,7 +132,9 @@ class Timm(nn.Module):
             anchors = self.anchors(img_batch)
             print('================anchors==============')
             print(anchors.shape)
-            return
+
+            return self.focalLoss(classification, regression, anchors, annotations)
+            # return
 
 
         regression = torch.cat([self.regressionModel(feature) for feature in features], dim=1)
