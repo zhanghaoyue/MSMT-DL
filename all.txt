@@ -1,0 +1,129 @@
+########## spec_config ##########
+
+### default
+model = None
+net_idx = None
+path_key = None
+
+# data & file path
+path_img = None
+
+### data
+dim = 3
+label_length = 2
+sequence = 'ALL'
+
+### Net
+dv_num = [1,2,3]
+cls_num = [1,2,3]
+
+**** mr cls ****
+cls_only = False
+cls_ratio = 0
+cls_loss = 'bce'
+cls_output = 2
+
+# s - simple
+# p - Path-RCNN
+cls_block = 's'
+cls_w = 1
+
+**** MC ****
+MC_share = False
+
+**** MP ****
+share_b = [0]
+
+# CO - conv
+# SE - channel attention
+# NL - Non-Local
+# CASA - Channel & Spatial
+MC_block = 'SE'
+
+**** Non-Local ****
+# 'gaussian', 'embedded',
+# 'dot', 'concatenate'
+NL_mode = 'embedded'
+
+### train
+pre_train = True
+fix_BN = True
+lth = 0.4
+hth = 0.5
+alpha = 0.25
+
+### eval
+cls_th = 0.05
+nms_th = 0.01
+s_th = 0.05
+max_dets = 100
+iou_th = 0.3
+
+########## common_config ##########
+
+**** hardware config ****
+gpu_idx = 0
+*************************
+
+**** mode ****
+mode = 'train'
+eval = False
+***********************************
+
+**** train & val config ****
+# train set
+epoch = 36
+start_epoch = 1
+gap_epoch = 10
+
+# dataloader set
+# batch balance
+train_bs = 16
+num_workers = 4
+val_bs = 1
+test_num_workers = 0
+***********************************
+
+**** data config ****
+# win set(white/un/ci)
+win = 'ci'
+
+# mirror
+mirror = True
+
+# Mask-RCNN size
+in_size = 448
+
+**** pixel-wise trans ****
+# contrast
+contrast = False
+contrast_range = [0.65, 1.5]
+
+# brightness
+brightness = False
+b_range = [0.7, 1.3]
+
+# gaussian noise
+noise = False
+noise_range = [0, 0.1]
+***********************************
+
+**** optimizer config ****
+optim = 'AdamW'
+wd = 0.01
+lr = 0.0001
+flood = False
+patience = 3
+cos_lr = False
+Tmax = 20
+lr_gap = 100
+cycle_r = False
+***********************************
+
+**** model config ****
+save_log = False
+***********************************
+
+
+
+
