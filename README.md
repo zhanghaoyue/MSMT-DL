@@ -4,7 +4,7 @@ Source code for Multi-sequence multi-task detection model for Cerebral Venous Th
 # Deep Learning Algorithm Enables Cerebral Venous Thrombosis Detection With Routine Brain Magnetic Resonance Imaging
 Xiaoxu Yang, [Pengxin Yu](https://github.com/smilenaxx/), [Haoyue Zhang](https://github.com/zhanghaoyue), Rongguo Zhang, Yuehong Liu, Haoyuan Li, Penghui Sun, Xin Liu, Yu Wu, Xiuqin Jia, Jiangang Duan, Xunming Ji, and Qi Yang
 
-[![paper](https://link.springer.com/chapter/10.1007/978-3-031-16446-0_33)
+[Click here to read the paper](https://link.springer.com/chapter/10.1007/978-3-031-16446-0_33)
 
 ## Abstract
 Background:
